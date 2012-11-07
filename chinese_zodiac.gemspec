@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'chinese_zodiac'
-  s.version     = '0.0.1'
-  s.date        = '2012-09-09'
+  s.version     = '0.0.2'
+  s.date        = '2012-11-07'
   s.summary     = "Chinese Zodiac"
   s.description = "A simple chinese animal horoscope gem"
   s.authors     = ["Evgeniy Nickolaev"]

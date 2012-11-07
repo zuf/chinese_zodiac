@@ -36,13 +36,14 @@ class ChineseZodiac
   def self.initialize_years
     years_file = File.join(File.dirname(__FILE__), '..', 'csv', 'years.csv')   
 
-    CSV.foreach(years_file, headers: true) do |row|
-      year = row['year'].to_i
+    #CSV.foreach(years_file, :headers => true) do |row|
+    CSV.open(years_file, 'r') do |row|      
+      year = row[0].to_i
 
-      day_month = row['day_month']
+      day_month = row[1]
       edge_date = "#{day_month} #{year}"
       start_of_year = Date.strptime(edge_date, "%d %b %Y").to_date
-      YEARS_DATA[year] = { year: year, start_of_year: start_of_year, animal_sign: row['animal_sign']}
+      YEARS_DATA[year] = { :year => year, :start_of_year => start_of_year, :animal_sign => row[2]}
     end
 
     years = YEARS_DATA.keys
